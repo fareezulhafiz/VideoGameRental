@@ -1,4 +1,5 @@
 <?php
+
 // app/Http/Controllers/RentalController.php
 namespace App\Http\Controllers;
 
@@ -16,25 +17,26 @@ class RentalController extends Controller
     }
 
     public function create()
-    {
-        $users = User::all();
-        $games = Game::all();
-        return view('rentals.create', compact('users', 'games'));
-    }
+        {
+            $users = User::all();
+            $games = Game::all();
+            return view('rentals.create', compact('users', 'games'));
+        }
+
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'game_id' => 'required|exists:games,id',
-            'rental_date' => 'required|date',
-        ]);
+        {
+            $request->validate([
+                'user_id' => 'required|exists:users,id',
+                'game_id' => 'required|exists:games,id',
+                'rental_date' => 'required|date',
+            ]);
 
-        Rental::create($request->all());
+            Rental::create($request->all());
 
-        return redirect()->route('rentals.index')
-                        ->with('success', 'Rental created successfully.');
-    }
+            return redirect()->route('rentals.index')->with('success', 'Rental created successfully.');
+        }
+
 
     public function show(Rental $rental)
     {
@@ -42,26 +44,26 @@ class RentalController extends Controller
     }
 
     public function edit(Rental $rental)
-    {
-        $users = User::all();
-        $games = Game::all();
-        return view('rentals.edit', compact('rental', 'users', 'games'));
-    }
+        {
+            $users = User::all();
+            $games = Game::all();
+            return view('rentals.edit', compact('rental', 'users', 'games'));
+        }
 
-   public function update(Request $request, Rental $rental)
-    {
-        $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'game_id' => 'required|exists:games,id',
-            'rental_date' => 'required|date',
-            'return_date' => 'nullable|date',
-        ]);
 
-        $rental->update($request->all());
+    public function update(Request $request, Rental $rental)
+        {
+            $request->validate([
+                'user_id' => 'required|exists:users,id',
+                'game_id' => 'required|exists:games,id',
+                'rental_date' => 'required|date',
+                'return_date' => 'nullable|date',
+            ]);
 
-        return redirect()->route('rentals.index')
-                        ->with('success', 'Rental updated successfully.');
-    }
+            $rental->update($request->all());
+
+            return redirect()->route('rentals.index')->with('success', 'Rental updated successfully.');
+        }
 
 
     public function destroy(Rental $rental)
@@ -70,4 +72,3 @@ class RentalController extends Controller
         return redirect()->route('rentals.index');
     }
 }
-
