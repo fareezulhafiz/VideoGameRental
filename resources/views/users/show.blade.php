@@ -2,11 +2,19 @@
 
 @section('content')
 <div class="container mt-5">
-    <h1 class="text-center" style="color: yellow; font-family: 'Press Start 2P', cursive;">Customer Details</h1> <!-- Title styling outside the container -->
-    
-    <div class="p-4 border border-secondary rounded shadow-lg" style="background-color: rgba(255, 255, 255, 0.8);"> <!-- Container styling -->
-        <table class="table table-striped table-bordered mt-4"> <!-- Table styles -->
-            <thead class="table-light">
+    <h1 class="text-center" style="color: yellow; font-family: 'Press Start 2P', cursive; margin-bottom: 30px;">
+        <i class="fas fa-user"></i> Customer Details
+    </h1> <!-- Added icon to the title -->
+
+    <div class="p-4 border border-secondary rounded shadow-lg" style="background-color: rgba(0, 0, 0, 0.7); color: white;"> <!-- Darker container for contrast -->
+        <table class="table table-striped table-bordered mt-4 text-center"> <!-- Centered text -->
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Attribute</th> <!-- Changed column header -->
+                    <th scope="col">Value</th>
+                </tr>
+            </thead>
+            <tbody>
                 <tr>
                     <th>ID</th>
                     <td>{{ $user->id }}</td>
@@ -19,10 +27,12 @@
                     <th>Email</th>
                     <td>{{ $user->email }}</td>
                 </tr>
-            </thead>
+            </tbody>
         </table>
-        
-        <a href="{{ route('users.index') }}" class="btn" style="background-color: rgb(5, 130, 175); color: white; width: 100%; padding: 15px; font-family: 'Press Start 2P', cursive;">Back</a> <!-- Styled button -->
+
+        <a href="{{ route('users.index') }}" class="btn" style="background-color: rgb(5, 130, 175); color: white; width: 100%; padding: 15px; font-family: 'Press Start 2P', cursive;">
+            <i class="fas fa-arrow-left"></i> Back
+        </a> <!-- Added icon to the button -->
     </div>
 </div>
 @endsection
