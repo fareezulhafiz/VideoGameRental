@@ -3,3 +3,6 @@ We are creating a simple CRUD system with Eloquent relationships for a video gam
 A User can rent multiple Games.
 A Game can be rented by multiple Users.
 The Rental table will handle the many-to-many relationship between User and Game.
+
+This is the Youtube link for the presentaion video:
+https://youtu.be/tUzYiZDTdk4 
