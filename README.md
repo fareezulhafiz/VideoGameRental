@@ -4,5 +4,5 @@ A User can rent multiple Games.
 A Game can be rented by multiple Users.
 The Rental table will handle the many-to-many relationship between User and Game.
 
-This is the Youtube link for the presentaion video:
+This is the Youtube link for the presentation video:
 https://youtu.be/tUzYiZDTdk4 
